@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Science &amp; Vulkanismus – Warum Offene Forschung Leben Rettet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Three.js via importmap -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════ NAVIGATION ══════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">OpenScience<em>Lab</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#open-science" class="nav-link">Open Science</a></li>
+      <li><a href="#volcanoes"    class="nav-link">Vulkanismus</a></li>
+      <li><a href="#phlegraean"   class="nav-link">Phlegräische Felder</a></li>
+      <li><a href="#kilimanjaro"  class="nav-link">Kilimandscharo</a></li>
+      <li><a href="#sources"      class="nav-link">Quellen</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Interaktive Forschungsplattform · 2024</div>
+    <h1 class="hero-title">
+      Warum<br/>
+      <span class="gradient-text-science">Offene Wissenschaft</span><br/>
+      die Welt verändert
+    </h1>
+    <p class="hero-subtitle">
+      Echtdaten · Three.js-Visualisierungen · Open-Source-Forschung &amp; Vulkanologie
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="62">0</span><span>%</span>
+        <small>aller Paper sind heute Open Access</small>
+      </div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="3">0</span><span>M</span>
+        <small>Menschen im Risikogebiet der Campi Flegrei</small>
+      </div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num" data-target="85">0</span><span>%</span>
+        <small>Gletscherrückgang am Kilimandscharo seit 1912</small>
+      </div>
+    </div>
+    <a href="#open-science" class="hero-cta">Erkunden <span>↓</span></a>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 1 – OPEN SCIENCE ═════════════════ -->
+<section id="open-science">
+  <div class="section-header">
+    <span class="section-tag science-tag">Teil I</span>
+    <h2>Die Revolution der Offenen Wissenschaft</h2>
+    <p class="section-sub">
+      Open-Source-Forschung ist keine Ideologie – sie ist eine bewiesene Methode,
+      um wissenschaftlichen Fortschritt zu beschleunigen, Leben zu retten und globale
+      Ungleichheiten abzubauen.
+    </p>
+  </div>
+
+  <!-- Key metrics row -->
+  <div class="metrics-row">
+    <div class="metric-card science-glow">
+      <div class="metric-icon">📄</div>
+      <div class="metric-value"><span class="count-up" data-target="62">0</span>%</div>
+      <div class="metric-label">Open-Access-Anteil 2024</div>
+      <div class="metric-source">Unpaywall, 2024</div>
+    </div>
+    <div class="metric-card science-glow">
+      <div class="metric-icon">📈</div>
+      <div class="metric-value">+<span class="count-up" data-target="18">0</span>%</div>
+      <div class="metric-label">Mehr Zitationen für OA-Paper</div>
+      <div class="metric-source">Piwowar et al., 2018</div>
+    </div>
+    <div class="metric-card volcano-glow">
+      <div class="metric-icon">⚠️</div>
+      <div class="metric-value"><span class="count-up" data-target="70">0</span>%</div>
+      <div class="metric-label">Forscher bestätigen Reproduzierbarkeitskrise</div>
+      <div class="metric-source">Baker, Nature 2016</div>
+    </div>
+    <div class="metric-card science-glow">
+      <div class="metric-icon">💰</div>
+      <div class="metric-value">$<span class="count-up" data-target="400">0</span>B</div>
+      <div class="metric-label">Jährlicher Mehrwert durch Open Data</div>
+      <div class="metric-source">McKinsey Global Institute, 2013</div>
+    </div>
+  </div>
+
+  <!-- OA Growth + Reproducibility charts -->
+  <div class="two-col-grid">
+    <div class="chart-card">
+      <div class="chart-header">
+        <h3>Wachstum von Open-Access-Publikationen</h3>
+        <span class="chart-tag">Zeitreihe 2000 – 2024</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="oa-growth-chart"></canvas>
+      </div>
+      <p class="chart-caption">
+        Quellen: Unpaywall 2022; European Commission Open Science Monitor 2024.
+        Der Anteil frei zugänglicher Publikationen ist von unter 2 % (2000) auf über 62 % (2024) gestiegen.
+      </p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <h3>Reproduzierbarkeitsraten nach Fachbereich</h3>
+        <span class="chart-tag">% erfolgreich replizierter Studien</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="reproducibility-chart"></canvas>
+      </div>
+      <p class="chart-caption">
+        Quellen: Open Science Collaboration 2015 (Psychologie); Errington et al. 2021 (Krebsbiologie);
+        Camerer et al. 2018 (Sozialwissenschaften); diverse Metaanalysen.
+      </p>
+    </div>
+  </div>
+
+  <!-- 3D research network globe -->
+  <div class="fullwidth-card vis-card">
+    <div class="vis-header">
+      <div>
+        <h3>3D-Forschungsnetzwerk: Globale Open-Science-Kollaborationen</h3>
+        <p>Interaktiv – ziehen &amp; scrollen zum Erkunden · Knoten = Institutionen, Linien = Datenaustausch</p>
+      </div>
+      <div class="legend-row">
+        <span class="legend-dot" style="background:#00d4ff"></span><span>Forschungseinrichtung</span>
+        <span class="legend-dot" style="background:#00ff88"></span><span>Open-Access-Paper</span>
+        <span class="legend-dot" style="background:#ff6200"></span><span>Datensatz</span>
+      </div>
+    </div>
+    <canvas id="network-canvas"></canvas>
+  </div>
+
+  <!-- Citation advantage chart + ROI -->
+  <div class="two-col-grid">
+    <div class="chart-card">
+      <div class="chart-header">
+        <h3>Zitationsvorteil von Open-Access-Artikeln</h3>
+        <span class="chart-tag">% mehr Zitationen vs. Closed Access</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="citation-chart"></canvas>
+      </div>
+      <p class="chart-caption">
+        Quellen: Piwowar et al. 2018 (Unpaywall-Analyse); Tennant et al. 2016;
+        Hajjem et al. 2006. Alle Fachbereiche profitieren von offener Veröffentlichung.
+      </p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <h3>Return on Investment: Offen vs. Geschlossen</h3>
+        <span class="chart-tag">$ Mehrwert pro $1 investiert</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="roi-chart"></canvas>
+      </div>
+      <p class="chart-caption">
+        Quellen: OECD (2015); McKinsey (2013); Wellcome Trust Economic Report 2020.
+        Offene Forschung erzeugt bis zu 5× mehr gesellschaftlichen Mehrwert.
+      </p>
+    </div>
+  </div>
+
+  <!-- Case study banner -->
+  <div class="case-study-banner science-border">
+    <div class="case-icon">🦠</div>
+    <div class="case-text">
+      <h4>Fallstudie COVID-19: Open Science rettet Leben</h4>
+      <p>
+        Während der Pandemie wurden &gt;50.000 Paper ohne Paywall geteilt.
+        Das SARS-CoV-2-Genom wurde innerhalb von <strong>10 Tagen</strong> nach Probennahme
+        öffentlich veröffentlicht. Die schnellste Impfstoffentwicklung in der Geschichte
+        (<strong>11 Monate</strong>) wäre ohne offene Sequenz- und Strukturdaten unmöglich gewesen.
+        Allein die mRNA-Plattform basiert auf über <strong>3.800 öffentlich zugänglichen Patenten</strong>
+        und Forschungsartikeln.
+      </p>
+    </div>
+    <div class="case-stats">
+      <div class="cstat"><strong>11</strong><br/><small>Monate bis zum Impfstoff</small></div>
+      <div class="cstat"><strong>50K+</strong><br/><small>freie COVID-Paper</small></div>
+      <div class="cstat"><strong>10 Tage</strong><br/><small>bis zum öff. Genom</small></div>
+    </div>
+  </div>
+
+  <!-- Key findings cards -->
+  <div class="findings-grid">
+    <div class="finding-card">
+      <div class="finding-num science-color">01</div>
+      <h4>Demokratisierung von Wissen</h4>
+      <p>
+        Open-Access-Artikel werden dreimal häufiger aus Entwicklungsländern heruntergeladen.
+        Forscher in Ländern mit niedrigem Einkommen, die keinen Bibliothekszugang haben,
+        können so an globalem Wissen teilhaben.
+      </p>
+      <cite>Unpaywall Impact Report 2022</cite>
+    </div>
+    <div class="finding-card">
+      <div class="finding-num science-color">02</div>
+      <h4>Beschleunigter Fortschritt</h4>
+      <p>
+        Studien, die offene Daten und Code teilen, werden im Durchschnitt
+        <strong>4,7 Jahre früher</strong> zitiert. Replikationen sind 60 % häufiger erfolgreich.
+      </p>
+      <cite>Christensen et al. 2019; Hardwicke et al. 2018</cite>
+    </div>
+    <div class="finding-card">
+      <div class="finding-num science-color">03</div>
+      <h4>Reproduzierbarkeitskrise</h4>
+      <p>
+        Nur <strong>11 % der Krebsbiologiestudien</strong> konnten reproduziert werden
+        (Errington 2021). Closed-Access-Forschung verhindert externe Überprüfung –
+        das kostet Menschenleben und Milliarden Fördergelder.
+      </p>
+      <cite>Errington et al., eLife 2021</cite>
+    </div>
+    <div class="finding-card">
+      <div class="finding-num science-color">04</div>
+      <h4>Industrielle Innovation</h4>
+      <p>
+        Offene Forschungsdaten werden von <strong>78 % der Unternehmen</strong> aktiv genutzt.
+        Open-Source-Algorithmen bilden das Fundament moderner KI – ChatGPT, AlphaFold,
+        Stable Diffusion – alle basieren auf öffentlich zugänglicher Forschung.
+      </p>
+      <cite>OECD Open Science Outlook 2023</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SECTION 2 – VOLCANOES ════════════════════ -->
+<section id="volcanoes">
+  <div class="section-header">
+    <span class="section-tag volcano-tag">Teil II</span>
+    <h2>Vulkanismus: Wo Offene Forschung Leben rettet</h2>
+    <p class="section-sub">
+      Globale Überwachungsnetzwerke, offene Seismik- und InSAR-Daten sowie
+      kollaborative Frühwarnsysteme sind der Unterschied zwischen Katastrophe und Evakuierung.
+    </p>
+  </div>
+
+  <!-- Volcano intro metrics -->
+  <div class="metrics-row">
+    <div class="metric-card volcano-glow">
+      <div class="metric-icon">🌋</div>
+      <div class="metric-value"><span class="count-up" data-target="1500">0</span>+</div>
+      <div class="metric-label">Aktive Vulkane weltweit</div>
+      <div class="metric-source">Smithsonian GVP, 2024</div>
+    </div>
+    <div class="metric-card volcano-glow">
+      <div class="metric-icon">🏙️</div>
+      <div class="metric-value"><span class="count-up" data-target="3">0</span>M</div>
+      <div class="metric-label">Menschen im Risikogebiet Campi Flegrei</div>
+      <div class="metric-source">INGV, 2023</div>
+    </div>
+    <div class="metric-card volcano-glow">
+      <div class="metric-icon">📡</div>
+      <div class="metric-value"><span class="count-up" data-target="420">0</span>cm</div>
+      <div class="metric-label">Bodenhebung Pozzuoli seit 1968</div>
+      <div class="metric-source">INGV Bradyseism Monitor, 2023</div>
+    </div>
+    <div class="metric-card volcano-glow">
+      <div class="metric-icon">🧊</div>
+      <div class="metric-value"><span class="count-up" data-target="85">0</span>%</div>
+      <div class="metric-label">Gletscherrückgang Kilimandscharo seit 1912</div>
+      <div class="metric-source">Thompson et al. 2009 + 2022 Update</div>
+    </div>
+  </div>
+
+  <!-- ─── PHLEGRAEAN FIELDS ─── -->
+  <div id="phlegraean" class="subsection">
+    <div class="subsection-header">
+      <div class="subsection-badge volcano-badge">Phlegräische Felder · Campi Flegrei</div>
+      <h3>Das schlafende Monster vor Neapels Toren</h3>
+      <p>
+        Die Campi Flegrei (Phlegräische Felder) sind ein aktiver Supervulkan westlich von Neapel, Italien.
+        Mit einem Caldura-Durchmesser von 13 km und über 3 Millionen Menschen im unmittelbaren
+        Einzugsbereich gehört dieses System zu den gefährlichsten Vulkanstrukturen der Erde.
+        Offene Monitoringdaten der INGV sind entscheidend für die Bewertung des Risikos.
+      </p>
+    </div>
+
+    <div class="volcano-layout">
+      <div class="volcano-3d-wrap">
+        <div class="canvas-header">
+          <span class="canvas-badge volcano-badge">3D-Geländemodell</span>
+          <span class="canvas-hint">🖱 Drehen &amp; Zoomen</span>
+        </div>
+        <canvas id="phlegraean-canvas"></canvas>
+        <div class="canvas-legend">
+          <span class="cl-item"><span class="cl-col" style="background:#002960"></span> Meer</span>
+          <span class="cl-item"><span class="cl-col" style="background:#1a5c2a"></span> Tiefland</span>
+          <span class="cl-item"><span class="cl-col" style="background:#c0621a"></span> Vulkanisch</span>
+          <span class="cl-item"><span class="cl-col" style="background:#ff4500"></span> Fumarolen</span>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <h4>Schlüsselfakten</h4>
+        <ul class="fact-list">
+          <li><span class="fact-icon">📍</span> Koordinaten: 40.827°N, 14.139°E</li>
+          <li><span class="fact-icon">📏</span> Caldera-Durchmesser: 13 km</li>
+          <li><span class="fact-icon">🔴</span> Alarmzustand: Gelb (Gialla) seit 2012</li>
+          <li><span class="fact-icon">📅</span> Letzte Eruption: Monte Nuovo, 1538</li>
+          <li><span class="fact-icon">🌡️</span> Fumaroltemperatur Solfatara: 175 °C (2023)</li>
+          <li><span class="fact-icon">⬆️</span> Bodenhebung 2023: ≈ 3–4 cm/Monat</li>
+          <li><span class="fact-icon">💥</span> Stärkstes EQ 2023: M 4,2 (Sept. 2023)</li>
+          <li><span class="fact-icon">🔬</span> Monitoring: INGV OsservatorioVesuviano (Open Data)</li>
+        </ul>
+        <div class="alert-box">
+          <strong>⚠ Bradyseismismus:</strong> Der Boden von Pozzuoli hebt und senkt sich zyklisch –
+          ein Phänomen, das seit Jahrhunderten bekannt ist. Seit 2005 befindet sich das System in
+          einer Phase der Hebung ohne Unterbrechung. Die Gesamthebung beträgt seit 1968 über 420 cm.
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col-grid">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Bodenhebung (Bradyseismismus) 1968–2023</h3>
+          <span class="chart-tag">Kumulative Hebung in cm · INGV-Benchmark Pozzuoli</span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="uplift-chart"></canvas>
+        </div>
+        <p class="chart-caption">
+          Quelle: INGV OsservatorioVesuviano (Monitoraggio Campi Flegrei).
+          Die drei Hebungsphasen 1969–72, 1982–84 und 2005–heute sind deutlich erkennbar.
+          Der heutige Messwert überschreitet den Hochpunkt der Krise von 1984.
+        </p>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Seismische Aktivität 2010–2023</h3>
+          <span class="chart-tag">Anzahl Erdbeben M ≥ 1,0 pro Jahr</span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="seismic-chart"></canvas>
+        </div>
+        <p class="chart-caption">
+          Quelle: INGV Rete Sismica Nazionale.
+          Die dramatische Zunahme seit 2020 ist ein Alarmsignal. 2023 registrierte die INGV
+          den stärksten Schwarmeinsatz seit 40 Jahren, mit einem M-4,2-Beben am 27. September 2023.
+        </p>
+      </div>
+    </div>
+
+    <div class="chart-card full-chart">
+      <div class="chart-header">
+        <h3>Fumaroltemperatur an der Solfatara (°C) 2000–2023</h3>
+        <span class="chart-tag">Langzeitmessung · Indikator für magmatische Aktivität</span>
+      </div>
+      <div class="chart-wrap chart-wrap-wide">
+        <canvas id="fumarole-chart"></canvas>
+      </div>
+      <p class="chart-caption">
+        Quelle: INGV OsservatorioVesuviano. Die stetige Zunahme der Fumaroltemperatur 
+        (von 163 °C im Jahr 2000 auf 175 °C im Jahr 2023) deutet auf zunehmende 
+        magmatische Entgasung hin und korreliert mit der Bodenhebung.
+      </p>
+    </div>
+  </div>
+
+  <!-- ─── KILIMANJARO ─── -->
+  <div id="kilimanjaro" class="subsection">
+    <div class="subsection-header">
+      <div class="subsection-badge glacier-badge">Kilimandscharo · Tanzania</div>
+      <h3>Das Dach Afrikas verliert sein Weiß</h3>
+      <p>
+        Der Kilimandscharo (5.895 m ü. NN) ist der höchste Berg Afrikas und Tansanias Nationalstolz.
+        Seine tropischen Gletscher – entstanden vor über 11.700 Jahren – sind ein einzigartiges
+        Klimaarchiv und Wasserreservoir. Offene Fernerkundungsdaten und internationale Kooperationen
+        dokumentieren ihren dramatischen Rückgang.
+      </p>
+    </div>
+
+    <div class="volcano-layout volcano-layout-reverse">
+      <div class="info-panel">
+        <h4>Schlüsselfakten</h4>
+        <ul class="fact-list">
+          <li><span class="fact-icon">📍</span> Koordinaten: 3.063°S, 37.359°E</li>
+          <li><span class="fact-icon">📏</span> Gipfelhöhe: 5.895 m (Uhuru Peak)</li>
+          <li><span class="fact-icon">🧊</span> Gletscherfläche 1912: 11,40 km²</li>
+          <li><span class="fact-icon">📉</span> Gletscherfläche 2020: ~1,73 km² (–85 %)</li>
+          <li><span class="fact-icon">📅</span> Prognose: Gletscherfreier Gipfel bis 2040–2060</li>
+          <li><span class="fact-icon">🌡️</span> Ø-Temperaturanstieg am Gipfel seit 1900: +1,8 °C</li>
+          <li><span class="fact-icon">💧</span> Eiskernarchiv: 11.700 Jahre Klimageschichte</li>
+          <li><span class="fact-icon">🔬</span> Monitoring: TPMS, NASA MODIS (Open Data)</li>
+        </ul>
+        <div class="alert-box glacier-alert">
+          <strong>🧊 Klimaindikator:</strong> Die Kilimandscharo-Gletscher reagieren sowohl auf
+          Temperatur als auch auf verringerte Niederschläge. Ihr Verschwinden bedroht die
+          Wasserversorgung von Millionen Menschen in Tansania und Kenia und ist ein
+          untrügliches Signal des globalen Klimawandels.
+        </div>
+      </div>
+
+      <div class="volcano-3d-wrap">
+        <div class="canvas-header">
+          <span class="canvas-badge glacier-badge">3D-Bergmodell mit Gletscher</span>
+          <span class="canvas-hint">🖱 Drehen &amp; Zoomen</span>
+        </div>
+        <canvas id="kilimanjaro-canvas"></canvas>
+        <div class="glacier-controls">
+          <label for="glacier-slider">🧊 Zeitreise: Gletscherstand im Jahr</label>
+          <div class="slider-row">
+            <span class="slider-year" id="glacier-year-label">1912</span>
+            <input type="range" id="glacier-slider" min="0" max="7" step="1" value="0" />
+            <span class="slider-year" id="glacier-year-end">2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col-grid">
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Gletscherrückgang am Kilimandscharo 1912–2020</h3>
+          <span class="chart-tag">Gletscherfläche in km²</span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="glacier-chart"></canvas>
+        </div>
+        <p class="chart-caption">
+          Quellen: Thompson et al. 2009 (Ohio State University); Cullen et al. 2013;
+          TPMS/NASA Landsat-Analysen. Seit 1912 hat der Kilimandscharo 85 % seiner
+          Gletscherfläche verloren. Der Trend beschleunigt sich.
+        </p>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <h3>Temperaturen &amp; Niederschlag am Gipfel</h3>
+          <span class="chart-tag">Temperaturanomalie vs. Niederschlag (mm) seit 1950</span>
+        </div>
+        <div class="chart-wrap">
+          <canvas id="kili-climate-chart"></canvas>
+        </div>
+        <p class="chart-caption">
+          Quellen: Tanzania Meteorological Authority; CRU TS v4.06; NOAA.
+          Beide Faktoren – steigende Temperatur und sinkender Niederschlag – verstärken
+          den Gletscherschwund. Offene Klimadaten ermöglichen diese Analyse.
+        </p>
+      </div>
+    </div>
+
+    <!-- Open research benefit highlight -->
+    <div class="case-study-banner volcano-border">
+      <div class="case-icon">🛰️</div>
+      <div class="case-text">
+        <h4>Offene Fernerkundungsdaten retten Erkenntnisse</h4>
+        <p>
+          NASA Landsat (öffentlich seit 1972) und ESA Sentinel (Copernicus, seit 2014) ermöglichen
+          kostenlose Gletscherüberwachung. Ohne diese offenen Datensätze wären Langzeitreihen
+          wie die Kilimandscharo-Gletschergeschichte wissenschaftlich nicht dokumentierbar.
+          InSAR-Daten (Sentinel-1, ESA) erlauben die millimetergenaue Überwachung der
+          Bodenhebung in den Campi Flegrei – ein direkter Gewinn offener Weltraumbehörden-Daten.
+        </p>
+      </div>
+      <div class="case-stats">
+        <div class="cstat"><strong>50+</strong><br/><small>Jahre Landsat-Archiv</small></div>
+        <div class="cstat"><strong>0 €</strong><br/><small>Zugangskosten Sentinel</small></div>
+        <div class="cstat"><strong>mm</strong><br/><small>InSAR-Genauigkeit</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SOURCES ══════════════════════════════════ -->
+<section id="sources">
+  <div class="section-header">
+    <span class="section-tag">Quellen &amp; Methodik</span>
+    <h2>Wissenschaftliche Grundlage</h2>
+  </div>
+  <div class="sources-grid">
+    <div class="source-group">
+      <h4>Open Science &amp; Open Access</h4>
+      <ol class="source-list">
+        <li>Piwowar H. et al. (2018). The state of OA. <em>PeerJ</em> 6:e4375.</li>
+        <li>Baker M. (2016). 1,500 scientists lift the lid on reproducibility. <em>Nature</em> 533, 452–454.</li>
+        <li>Open Science Collaboration (2015). Estimating the reproducibility of psychological science. <em>Science</em> 349(6251).</li>
+        <li>Errington T.M. et al. (2021). Investigating the replicability of preclinical cancer biology. <em>eLife</em> 10:e71601.</li>
+        <li>McKinsey Global Institute (2013). Open data: Unlocking innovation and performance.</li>
+        <li>OECD (2015). Making Open Science a Reality. OECD Science, Technology and Industry Policy Papers, No. 25.</li>
+        <li>Unpaywall (2024). State of Open Access Report.</li>
+      </ol>
+    </div>
+    <div class="source-group">
+      <h4>Phlegräische Felder / Campi Flegrei</h4>
+      <ol class="source-list">
+        <li>INGV OsservatorioVesuviano (2023). Bollettino di sorveglianza Campi Flegrei.</li>
+        <li>Berrino G. et al. (1984). Ground deformation and gravity changes accompanying the 1982 Pozzuoli uplift. <em>BVSA</em> 29, 845–861.</li>
+        <li>De Siena L. et al. (2017). Seismic imaging of magmatic reservoirs. <em>Geophys. Res. Lett.</em></li>
+        <li>D'Auria L. et al. (2023). Rapid migration of seismicity at Campi Flegrei caldera. <em>Commun. Earth Environ.</em></li>
+        <li>Chiodini G. et al. (2020). Hydrothermal pressure-temperature control on CO2 degassing. <em>Nat. Commun.</em></li>
+      </ol>
+    </div>
+    <div class="source-group">
+      <h4>Kilimandscharo-Gletscher</h4>
+      <ol class="source-list">
+        <li>Thompson L.G. et al. (2009). Glacier loss on Kilimanjaro continues unabated. <em>PNAS</em> 106(47), 19770–19775.</li>
+        <li>Cullen N.J. et al. (2013). A century of ice retreat on Kilimanjaro. <em>The Cryosphere</em> 7, 419–431.</li>
+        <li>Salzmann N. et al. (2020). Glaciers in Africa. <em>Mountain Research and Development</em>.</li>
+        <li>NASA MODIS Terra/Aqua Land Surface Temperature Products.</li>
+        <li>CRU TS v4.06 (Harris et al. 2020). Updated high-resolution grids of monthly climatic observations.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">⬡</span>
+      <strong>OpenScienceLab</strong>
+      <span class="footer-tagline">Wissen gehört allen</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/ProfessorEngineergit/Open-Vulkan-Referat" target="_blank" rel="noopener">
+        🐙 GitHub Repository
+      </a>
+      <a href="https://www.ingv.it/" target="_blank" rel="noopener">INGV</a>
+      <a href="https://unpaywall.org/" target="_blank" rel="noopener">Unpaywall</a>
+      <a href="https://www.copernicus.eu/" target="_blank" rel="noopener">Copernicus</a>
+    </div>
+    <p class="footer-copy">
+      Erstellt im Rahmen des Open-Vulkan-Referats · Daten: INGV, NASA, ESA, Unpaywall, OECD · 2024
+    </p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════ SCRIPTS ══════════════════════════════════ -->
+<script type="module" src="js/three-scenes.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
