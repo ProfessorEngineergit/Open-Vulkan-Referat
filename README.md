@@ -1,10 +1,12 @@
 # Open-Vulkan-Referat
 
-> **Groundbreaking interactive website** on Open-Source Research & Volcanology — built with Three.js, Chart.js, and real scientific data.
+Educational website prototype about open science and volcanology, using Three.js and Chart.js.
+
+Charts contain hard-coded arrays and source references. The repository does not provide a reproducible data-import pipeline or a point-by-point source verification; the visualisations should not be presented as independently validated research.
 
 ## 🌋 Live Demo
 
-Open `index.html` in any modern browser. No build step required — all libraries load from CDN.
+Serve the repository with `python3 -m http.server 8080`, then open `http://localhost:8080`. No build step is required. Three.js, Chart.js and GSAP are bundled under `vendor/`; see `index.html` for the resource paths.
 
 ## 📂 Structure
 
@@ -57,3 +59,7 @@ js/main.js          – Scroll effects, counters, navigation
 - INGV OsservatorioVesuviano — Campi Flegrei monitoring data
 - Thompson et al., *PNAS* (2009) — Kilimanjaro glacier data
 - Cullen et al., *The Cryosphere* (2013) — Kilimanjaro glacier survey
+
+## Development and AI assistance
+
+The default-branch history includes contributions explicitly attributed to GitHub Copilot ([example](https://github.com/ProfessorEngineergit/Open-Vulkan-Referat/commit/f4767e3edbf55f6ecedb2b875ebc9512eee76560)). This documents AI involvement in those contributions; it does not establish the origin of every line or independent validation. Existing author, co-author and session records are retained.
